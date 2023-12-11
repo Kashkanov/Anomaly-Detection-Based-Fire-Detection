@@ -1,0 +1,24 @@
+ENVIRONMENT INSTALLATION
+1. create a new conda environment for preprocessors Python 3.7
+	a. using conda cmd, run "pip install -r preprocessrequirements.txt"
+
+2. create another conda environment for train/test Python 3.7
+	b. using conda cmd, run "pip install -r requirements.txt"
+
+TRAINING
+1. Compile normal(non-fire) videos into train folder
+2. Using the preprocess environment, run "python preprocess.py ./train 15" to preprocess videos by 15 fps
+	a. a training.npy file must be present inside npys folder
+3. Using the train/test environment, run "python train.py 50" to train the model with 50 epochs
+	a. A model must be present in the Model folder
+
+TESTING
+I. PREPROCESSING
+	1. Go to test folder
+	2. For each individual video, create a folder containing only said video
+	3. Using the preprocess environment, run "python preprocess.py ./test/vid_folder 15" to preprocess videos by 15 fps
+		a. an npy file must be present inside npys folder containing the preprocessed video
+
+II. TESTING
+	1. Using the train/test environment, run "python test.py npys/vid_npy"
+	2. The testing results(csv) are available in the results folder 
